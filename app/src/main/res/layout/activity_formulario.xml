@@ -41,6 +41,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:hint="Nome"
+                android:inputType="text"
                 tools:layout_editor_absoluteX="28dp"
                 tools:layout_editor_absoluteY="25dp">
 
@@ -70,9 +71,11 @@
             </TextView>
 
             <EditText
+                android:id="@+id/etEmail"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:hint="Email"
+                android:inputType="textEmailAddress"
                 tools:layout_editor_absoluteX="28dp"
                 tools:layout_editor_absoluteY="25dp">
 
@@ -102,9 +105,11 @@
             </TextView>
 
             <EditText
+                android:id="@+id/etNumero"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:hint="Numero"
+                android:inputType="phone"
                 tools:layout_editor_absoluteX="28dp"
                 tools:layout_editor_absoluteY="25dp">
 
@@ -134,9 +139,11 @@
             </TextView>
 
             <EditText
+                android:id="@+id/etCpf"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:hint="CPF"
+                android:inputType="number"
                 tools:layout_editor_absoluteX="28dp"
                 tools:layout_editor_absoluteY="25dp">
 
@@ -166,9 +173,113 @@
             </TextView>
 
             <EditText
+                android:id="@+id/etLougradoro"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:hint="Lougradoro"
+                android:inputType="text"
+                tools:layout_editor_absoluteX="28dp"
+                tools:layout_editor_absoluteY="25dp">
+
+            </EditText>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llBairro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="15px"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/llCPF"
+            app:layout_constraintVertical_bias="0.081"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Bairro:">
+
+            </TextView>
+
+            <EditText
+                android:id="@+id/etBairro"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:hint="Bairro"
+                android:inputType="text"
+                tools:layout_editor_absoluteX="28dp"
+                tools:layout_editor_absoluteY="25dp">
+
+            </EditText>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llCidade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="15px"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/llCPF"
+            app:layout_constraintVertical_bias="0.081"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cidade:">
+
+            </TextView>
+
+            <EditText
+                android:id="@+id/etCidade"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:hint="Cidade"
+                android:inputType="text"
+                tools:layout_editor_absoluteX="28dp"
+                tools:layout_editor_absoluteY="25dp">
+
+            </EditText>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/llEstado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="15px"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/llCPF"
+            app:layout_constraintVertical_bias="0.081"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Estado:">
+
+            </TextView>
+
+            <EditText
+                android:id="@+id/etEstado"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:hint="Estado"
+                android:inputType="text"
                 tools:layout_editor_absoluteX="28dp"
                 tools:layout_editor_absoluteY="25dp">
 
@@ -177,6 +288,7 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/btnSalvar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="salvar"/>

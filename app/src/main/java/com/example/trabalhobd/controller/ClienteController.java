@@ -33,6 +33,9 @@ public class ClienteController extends AppDataBase implements ICrud<Cliente> {
         dadoDoObjeto.put(ClienteDataModel.CPF,obj.getCpf());
         dadoDoObjeto.put(ClienteDataModel.NUMERO,obj.getNumero());
         dadoDoObjeto.put(ClienteDataModel.LOGRADOURO,obj.getLougradouro());
+        dadoDoObjeto.put(ClienteDataModel.BAIRRO,obj.getBairro());
+        dadoDoObjeto.put(ClienteDataModel.CIDADE,obj.getCidade());
+        dadoDoObjeto.put(ClienteDataModel.ESTADO,obj.getEstado());
 
         return insert(ClienteDataModel.TABELA, dadoDoObjeto);
     }
@@ -47,6 +50,9 @@ public class ClienteController extends AppDataBase implements ICrud<Cliente> {
         dadoDoObjeto.put(ClienteDataModel.CPF,obj.getCpf());
         dadoDoObjeto.put(ClienteDataModel.NUMERO,obj.getNumero());
         dadoDoObjeto.put(ClienteDataModel.LOGRADOURO,obj.getLougradouro());
+        dadoDoObjeto.put(ClienteDataModel.BAIRRO,obj.getBairro());
+        dadoDoObjeto.put(ClienteDataModel.CIDADE,obj.getCidade());
+        dadoDoObjeto.put(ClienteDataModel.ESTADO,obj.getEstado());
 
         return true;
 

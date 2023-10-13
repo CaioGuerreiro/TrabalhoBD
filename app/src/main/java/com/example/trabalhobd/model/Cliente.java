@@ -12,6 +12,35 @@ public class Cliente {
     private String nome;
     private String email;
     private String numero;
+    private String cpf;
+    private String lougradouro;
+    private String bairro;
+    private String cidade;
+    private String estado;
+
+    public String getBairro() {
+        return bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
 
     public int getId() {
         return id;
@@ -20,9 +49,6 @@ public class Cliente {
     public void setId(int id) {
         this.id = id;
     }
-
-    private String cpf;
-    private String lougradouro;
 
     public String getNumero() {
         return numero;

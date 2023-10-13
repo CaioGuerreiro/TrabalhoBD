@@ -14,6 +14,9 @@ public class ClienteDataModel {
     public static final String NUMERO = "numero"; // text
     public static final String CPF = "cpf"; // text
     public static final String LOGRADOURO = "logradouro"; // text
+    public static final String BAIRRO = "bairro"; // text
+    public static final String CIDADE = "cidade"; // text
+    public static final String ESTADO = "estado"; // text
 
 
     // Query para criar a tabela no banco de dados
@@ -31,9 +34,16 @@ public class ClienteDataModel {
         queryCriaTabela += EMAIL+" text, ";
         queryCriaTabela += NUMERO+" text, ";
         queryCriaTabela += CPF+" text, ";
+        queryCriaTabela += BAIRRO+" text, ";
+        queryCriaTabela += CIDADE+" text, ";
+        queryCriaTabela += ESTADO+" text, ";
         queryCriaTabela += LOGRADOURO+" text ";
         queryCriaTabela += ")";
 
         return queryCriaTabela;
     }
 }
+
+
+
+

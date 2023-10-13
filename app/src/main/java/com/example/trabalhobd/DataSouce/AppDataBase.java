@@ -123,6 +123,9 @@ public class AppDataBase extends SQLiteOpenHelper {
                 obj.setNome(cursor.getString(cursor.getColumnIndex(ClienteDataModel.NOME)));
                 obj.setLougradouro(cursor.getString(cursor.getColumnIndex(ClienteDataModel.LOGRADOURO)));
                 obj.setNumero(cursor.getString(cursor.getColumnIndex(ClienteDataModel.NUMERO)));
+                obj.setBairro(cursor.getString(cursor.getColumnIndex(ClienteDataModel.BAIRRO)));
+                obj.setCidade(cursor.getString(cursor.getColumnIndex(ClienteDataModel.CIDADE)));
+                obj.setEstado(cursor.getString(cursor.getColumnIndex(ClienteDataModel.ESTADO)));
 
                 clientes.add(obj);
 
