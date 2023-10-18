@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TrabalhoBD</string>
+    <string name="title_activity_lista_cliente">ListaClienteActivity</string>
 </resources>

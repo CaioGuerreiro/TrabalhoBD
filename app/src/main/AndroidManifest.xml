@@ -13,6 +13,11 @@
         android:theme="@style/Theme.TrabalhoBD"
         tools:targetApi="31">
         <activity
+            android:name=".view.ListaClienteActivity"
+            android:exported="false"
+            android:label="@string/title_activity_lista_cliente"
+            android:theme="@style/Theme.TrabalhoBD" />
+        <activity
             android:name=".view.FormularioActivity"
             android:exported="false" />
         <activity

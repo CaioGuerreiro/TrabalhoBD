@@ -71,6 +71,9 @@ public class FormularioActivity extends AppCompatActivity {
                 novoCliente.setEstado(etEstado.getText().toString());
                 // aqui que vamos salvar os dados no banco de dados.
                 clienteController.incluir(novoCliente);
+
+                Toast.makeText(FormularioActivity.this, "Cliente Salvo!", Toast.LENGTH_LONG).show();
+                finish();
             }
         });
     }
