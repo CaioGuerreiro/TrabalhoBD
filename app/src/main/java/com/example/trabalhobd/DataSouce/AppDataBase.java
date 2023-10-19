@@ -102,7 +102,7 @@ public class AppDataBase extends SQLiteOpenHelper {
 
         db  = getWritableDatabase();
 
-        List<Cliente> clientes = new ArrayList<>();
+        List<Cliente> cliente = new ArrayList<>();
 
         String sql = "SELECT * FROM"+tabela;
 
@@ -127,13 +127,13 @@ public class AppDataBase extends SQLiteOpenHelper {
                 obj.setCidade(cursor.getString(cursor.getColumnIndex(ClienteDataModel.CIDADE)));
                 obj.setEstado(cursor.getString(cursor.getColumnIndex(ClienteDataModel.ESTADO)));
 
-                clientes.add(obj);
+                cliente.add(obj);
 
             }while (cursor.moveToNext());
         }
 
 
-        return clientes;
+        return cliente;
     }
 
 }
