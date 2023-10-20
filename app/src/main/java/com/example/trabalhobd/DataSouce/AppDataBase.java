@@ -21,6 +21,7 @@ public class AppDataBase extends SQLiteOpenHelper {
     public static final int DB_VERSION = 1;
 
 
+    Cursor cursor;
     SQLiteDatabase db;
     public AppDataBase(Context context) {
         super(context, DB_NAME, null, DB_VERSION);
@@ -104,7 +105,7 @@ public class AppDataBase extends SQLiteOpenHelper {
 
         List<Cliente> cliente = new ArrayList<>();
 
-        String sql = "SELECT * FROM"+tabela;
+        String sql = "SELECT * FROM  "+tabela;
 
         Cliente obj;
 

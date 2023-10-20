@@ -42,13 +42,22 @@
         app:layout_constraintTop_toBottomOf="@+id/tvProcure"
         app:layout_constraintVertical_bias="0.02"></EditText>
 
-    <ListView
-        android:id="@+id/lista"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etLista" />
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@+id/etLista"
+        tools:layout_editor_absoluteX="0dp">
+
+        <ListView
+            android:id="@+id/lista"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="16dp" />
+    </LinearLayout>
+
+
+    />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

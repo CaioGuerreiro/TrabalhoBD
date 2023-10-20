@@ -5,6 +5,8 @@ import static java.security.AccessController.getContext;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
@@ -38,7 +40,7 @@ public class ListaClienteActivity extends AppCompatActivity {
 
 
 
-        clienteController = new ClienteController(getApplicationContext());
+        clienteController = new ClienteController(ListaClienteActivity.this);
 
         lista = findViewById(R.id.lista);
         etLista = findViewById(R.id.etLista);
@@ -49,12 +51,30 @@ public class ListaClienteActivity extends AppCompatActivity {
 
 
        for (Cliente obj: clienteList) {
-            clientes.add(obj.getNome());
+            clientes.add("Nome: "+obj.getNome()+"\nCpf:" +obj.getCpf());
         }
 
         clienteAdapter = new ArrayAdapter<>(getApplicationContext(),R.layout.lista_cliente_item,R.id.textView, clientes);
 
         lista.setAdapter(clienteAdapter);
+
+        etLista.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence filtro, int i, int i1, int i2) {
+
+                ListaClienteActivity.this.clienteAdapter.getFilter().filter(filtro);
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
 
     }
 }
