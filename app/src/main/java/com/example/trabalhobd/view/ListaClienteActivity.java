@@ -4,11 +4,15 @@ import static java.security.AccessController.getContext;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 
@@ -24,6 +28,7 @@ public class ListaClienteActivity extends AppCompatActivity {
 
 
     EditText etLista;
+    Button btnDetalhar;
     ListView lista;
     List<Cliente> clienteList;
     List<String> clientes;
@@ -38,16 +43,15 @@ public class ListaClienteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_cliente);
 
-
-
         clienteController = new ClienteController(ListaClienteActivity.this);
+        //mainParaDetalharCliente();
+        //inicializaVariaveis();
+
 
         lista = findViewById(R.id.lista);
         etLista = findViewById(R.id.etLista);
         clienteList = clienteController.listar();
         clientes = new ArrayList<>();
-
-
 
 
        for (Cliente obj: clienteList) {
@@ -58,12 +62,35 @@ public class ListaClienteActivity extends AppCompatActivity {
 
         lista.setAdapter(clienteAdapter);
 
+
+        lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Obtenha o Cliente clicado
+                Cliente clienteClicado = clienteList.get(position);
+
+                // Crie uma nova Intent para a ClienteDetalhadoActivity
+                Intent i = new Intent(ListaClienteActivity.this, ClienteDetalhadoActivity.class);
+
+//                // Adicione quaisquer dados extras que você queira passar para a próxima Activity
+//                i.putExtra("CLIENTE_NOME", clienteClicado.getNome());
+//                i.putExtra("CLIENTE_CPF", clienteClicado.getCpf());
+
+                // Inicie a Activity
+                startActivity(i);
+            }
+        });
+
+
         etLista.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence filtro, int i, int i1, int i2) {
 
                 ListaClienteActivity.this.clienteAdapter.getFilter().filter(filtro);
             }
+
+
+
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -77,4 +104,19 @@ public class ListaClienteActivity extends AppCompatActivity {
         });
 
     }
+
+  /*  public void mainParaDetalharCliente(){
+        btnDetalhar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //ponto de partida
+                Intent i = new Intent(ListaClienteActivity.this, ClienteDetalhadoActivity.class);
+                startActivity(i);
+            }
+        });
+    }
+    public void inicializaVariaveis(){
+        btnDetalhar = findViewById(R.id.btnDetalhar);
+    }
+*/
 }

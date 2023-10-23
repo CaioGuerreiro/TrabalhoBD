@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">TrabalhoBD</string>
     <string name="title_activity_lista_cliente">ListaClienteActivity</string>
+    <string name="title_activity_cliente_detalhado" />
 </resources>

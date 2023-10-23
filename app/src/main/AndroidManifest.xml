@@ -18,9 +18,15 @@
             android:label="@string/title_activity_lista_cliente"
             android:theme="@style/Theme.TrabalhoBD" />
         <activity
+            android:name=".view.ClienteDetalhadoActivity"
+            android:exported="false"
+            android:label="@string/title_activity_cliente_detalhado"
+            android:theme="@style/Theme.TrabalhoBD" />
+        <activity
             android:name=".view.FormularioActivity"
             android:exported="false" />
         <activity
+
             android:name=".view.MainActivity"
             android:exported="true">
             <intent-filter>

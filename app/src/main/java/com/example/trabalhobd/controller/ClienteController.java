@@ -54,7 +54,7 @@ public class ClienteController extends AppDataBase implements ICrud<Cliente> {
         dadoDoObjeto.put(ClienteDataModel.CIDADE,obj.getCidade());
         dadoDoObjeto.put(ClienteDataModel.ESTADO,obj.getEstado());
 
-        return true;
+        return insert(ClienteDataModel.TABELA, dadoDoObjeto);
 
     }
 
