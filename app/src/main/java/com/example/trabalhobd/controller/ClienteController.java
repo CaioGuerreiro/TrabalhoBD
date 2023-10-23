@@ -15,7 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ClienteController extends AppDataBase implements ICrud<Cliente> {
-
+//
     ContentValues dadoDoObjeto;
     public ClienteController(Context context) {
         super(context);
