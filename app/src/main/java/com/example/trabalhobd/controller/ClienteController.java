@@ -16,7 +16,6 @@ import java.util.List;
 
 public class ClienteController extends AppDataBase implements ICrud<Cliente> {
 
-//coomentqario inutil
     ContentValues dadoDoObjeto;
     public ClienteController(Context context) {
         super(context);
