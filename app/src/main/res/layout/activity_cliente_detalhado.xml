@@ -290,9 +290,9 @@
         <LinearLayout
             android:id="@+id/llBtn"
             android:layout_width="match_parent"
-            android:layout_height="72dp"
+            android:layout_height="match_parent"
             android:orientation="horizontal"
-            android:padding="15px"
+
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -306,25 +306,26 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:background="#009688"
+                android:layout_margin="10dp"
+
                 android:text="Editar" />
 
             <Button
                 android:id="@+id/btnExcluir"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="20px"
+                android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:background="#ED7E5B"
+
                 android:text="Excluir" />
 
             <Button
                 android:id="@+id/btnProdutos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="20px"
+                android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:background="#03A9F4"
+
                 android:text="Produtos" />
 
         </LinearLayout>
