@@ -291,8 +291,7 @@
             android:id="@+id/btnSalvar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#3498db"
-            android:text="salvar"/>
+            android:text="salvar" />
 
     </LinearLayout>
 

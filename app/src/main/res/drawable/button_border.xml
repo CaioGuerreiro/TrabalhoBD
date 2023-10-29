@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <solid android:color="#FF00FF00" /> <!-- Cor de fundo (verde transparente) -->
+            <corners android:radius="8dp" /> <!-- Raio dos cantos do botão em dp -->
+        </shape>
+    </item>
+    <item android:right="2dp" android:left="2dp" android:top="2dp" android:bottom="2dp">
+        <shape>
+            <solid android:color="#FFFF0000" /> <!-- Cor da borda (vermelha) -->
+            <corners android:radius="8dp" /> <!-- Raio dos cantos da borda em dp -->
+        </shape>
+    </item>
+</layer-list>

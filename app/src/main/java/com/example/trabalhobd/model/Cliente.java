@@ -6,6 +6,8 @@ import android.util.Log;
 import com.example.trabalhobd.api.AppUtil;
 import com.example.trabalhobd.controller.ICrud;
 
+import java.io.Serializable;
+
 public class Cliente {
 
     private int id;

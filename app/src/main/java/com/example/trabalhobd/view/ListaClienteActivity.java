@@ -62,7 +62,6 @@ public class ListaClienteActivity extends AppCompatActivity {
 
         lista.setAdapter(clienteAdapter);
 
-
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -72,9 +71,17 @@ public class ListaClienteActivity extends AppCompatActivity {
                 // Crie uma nova Intent para a ClienteDetalhadoActivity
                 Intent i = new Intent(ListaClienteActivity.this, ClienteDetalhadoActivity.class);
 
-//                // Adicione quaisquer dados extras que você queira passar para a próxima Activity
-//                i.putExtra("CLIENTE_NOME", clienteClicado.getNome());
-//                i.putExtra("CLIENTE_CPF", clienteClicado.getCpf());
+                // Adicione quaisquer dados extras que você queira passar para a próxima Activity
+                i.putExtra("CLIENTE_ID", clienteClicado.getId());
+                i.putExtra("CLIENTE_NOME", clienteClicado.getNome());
+                i.putExtra("CLIENTE_EMAIL", clienteClicado.getEmail());
+                i.putExtra("CLIENTE_NUMERO", clienteClicado.getNumero());
+                i.putExtra("CLIENTE_CPF", clienteClicado.getCpf());
+                i.putExtra("CLIENTE_LOG", clienteClicado.getLougradouro());
+                i.putExtra("CLIENTE_BAIRRO", clienteClicado.getBairro());
+                i.putExtra("CLIENTE_CIDADE", clienteClicado.getCidade());
+                i.putExtra("CLIENTE_ESTADO", clienteClicado.getEstado());
+
 
                 // Inicie a Activity
                 startActivity(i);
@@ -88,9 +95,6 @@ public class ListaClienteActivity extends AppCompatActivity {
 
                 ListaClienteActivity.this.clienteAdapter.getFilter().filter(filtro);
             }
-
-
-
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
