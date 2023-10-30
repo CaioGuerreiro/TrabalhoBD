@@ -8,7 +8,7 @@ import com.example.trabalhobd.controller.ICrud;
 
 import java.io.Serializable;
 
-public class Cliente {
+public class Cliente implements Serializable {
 
     private int id;
     private String nome;

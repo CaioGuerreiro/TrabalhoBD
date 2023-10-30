@@ -72,6 +72,7 @@ public class ListaClienteActivity extends AppCompatActivity {
                 Intent i = new Intent(ListaClienteActivity.this, ClienteDetalhadoActivity.class);
 
                 // Adicione quaisquer dados extras que você queira passar para a próxima Activity
+                i.putExtra("CLIENTE", clienteClicado);
                 i.putExtra("CLIENTE_ID", clienteClicado.getId());
                 i.putExtra("CLIENTE_NOME", clienteClicado.getNome());
                 i.putExtra("CLIENTE_EMAIL", clienteClicado.getEmail());

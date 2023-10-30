@@ -1,5 +1,6 @@
 package com.example.trabalhobd.view;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -10,10 +11,12 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.trabalhobd.R;
 import com.example.trabalhobd.controller.ClienteController;
+import com.example.trabalhobd.datamodel.ClienteDataModel;
 import com.example.trabalhobd.model.Cliente;
 
 import java.util.ArrayList;
@@ -21,7 +24,14 @@ import java.util.List;
 
 public class ClienteDetalhadoActivity extends AppCompatActivity {
 
-    EditText etNome, etEmail, etNumero, etCpf, etLougradoro, etBairro, etCidade, etEstado;
+    EditText etNome;
+    EditText etEmail;
+    EditText etNumero;
+    EditText etCpf;
+    EditText etLougradoro;
+    EditText etBairro;
+    EditText etCidade;
+    EditText etEstado;
     Button btnEditar,btnExcluir,btnProdutos;
     List<Cliente> clienteList;
     List<String> clientes;
@@ -38,6 +48,7 @@ public class ClienteDetalhadoActivity extends AppCompatActivity {
 
         trazerDados();
         excluirCliente();
+        editarCliente();
     }
 
     public void inicializaVariaveis() {
@@ -56,7 +67,7 @@ public class ClienteDetalhadoActivity extends AppCompatActivity {
     }
     private void trazerDados(){
         inicializaVariaveis();
-
+//pegando os dados enviados por "i.put.extra" da tela ListCliente
         String nome=getIntent().getStringExtra("CLIENTE_NOME");
         String email=getIntent().getStringExtra("CLIENTE_EMAIL");
         String numero=getIntent().getStringExtra("CLIENTE_NUMERO");
@@ -76,20 +87,68 @@ public class ClienteDetalhadoActivity extends AppCompatActivity {
         etEstado.setText(estado);
 
     }
-        private void excluirCliente() {
-            int id=getIntent().getIntExtra("CLIENTE_ID",-1);
-            btnExcluir.setOnClickListener(new View.OnClickListener() {
+    private void excluirCliente() {
+        //caso ele não encontre o id do usuário, ele vai retornar o -1
+        int id = getIntent().getIntExtra("CLIENTE_ID", -1);
+
+        // Criar o AlertDialog.Builder fora do OnClickListener
+        AlertDialog.Builder caixaTexto = new AlertDialog.Builder(ClienteDetalhadoActivity.this);
+        caixaTexto.setTitle("Excluir");
+        caixaTexto.setMessage("Tem certeza que deseja excluir?");
+
+        // Impedir que clique fora
+        caixaTexto.setCancelable(false);
+        caixaTexto.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // Excluir o cliente
+                clienteController.deletar(id);
+                Toast.makeText(getApplicationContext(), "Excluído com sucesso", Toast.LENGTH_LONG).show();
+
+                // Voltar para a activity "MinhaActivity"
+                Intent intent = new Intent(ClienteDetalhadoActivity.this, ListaClienteActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        caixaTexto.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //mostra caixa de mensagem pequena por um longo tempo
+                Toast.makeText(getApplicationContext(), "Operação cancelada", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        // Exibir o diálogo quando o botão for clicado
+        btnExcluir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                clienteController.deletar(id);
+                // Exibir o AlertDialog
+                caixaTexto.show();
             }
         });
     }
-    private void editar() {
+
+    private void editarCliente() {
+        //trazendo o objeto cliente selecionado
+        Cliente clienteClicado = (Cliente) getIntent().getSerializableExtra("CLIENTE");
+
         btnEditar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-          //  clienteController.update(clienteController,);
+                //alterando os dados conforme vao sendo preenchidos
+                clienteClicado.setNome(etNome.getText().toString());
+                clienteClicado.setEmail(etEmail.getText().toString());
+                clienteClicado.setNumero(etNumero.getText().toString());
+                clienteClicado.setCpf(etCpf.getText().toString());
+                clienteClicado.setLougradouro(etLougradoro.getText().toString());
+                clienteClicado.setBairro(etBairro.getText().toString());
+                clienteClicado.setCidade(etCidade.getText().toString());
+                clienteClicado.setEstado(etEstado.getText().toString());
+
+                clienteController.alterar(clienteClicado);
+                Toast.makeText(ClienteDetalhadoActivity.this, "Cliente editado", Toast.LENGTH_LONG).show();
+
             }
         });
     }
