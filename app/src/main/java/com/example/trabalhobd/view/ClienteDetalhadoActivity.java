@@ -45,8 +45,9 @@ public class ClienteDetalhadoActivity extends AppCompatActivity {
 
         clienteList = clienteController.listar();
         clientes = new ArrayList<>();
-
+        inicializaVariaveis();
         trazerDados();
+
         excluirCliente();
         editarCliente();
     }
@@ -66,16 +67,16 @@ public class ClienteDetalhadoActivity extends AppCompatActivity {
         btnProdutos = findViewById(R.id.btnProdutos);
     }
     private void trazerDados(){
-        inicializaVariaveis();
-//pegando os dados enviados por "i.put.extra" da tela ListCliente
-        String nome=getIntent().getStringExtra("CLIENTE_NOME");
-        String email=getIntent().getStringExtra("CLIENTE_EMAIL");
-        String numero=getIntent().getStringExtra("CLIENTE_NUMERO");
-        String cpf=getIntent().getStringExtra("CLIENTE_CPF");
-        String log=getIntent().getStringExtra("CLIENTE_LOG");
-        String bairro=getIntent().getStringExtra("CLIENTE_BAIRRO");
-        String cidade=getIntent().getStringExtra("CLIENTE_CIDADE");
-        String estado=getIntent().getStringExtra("CLIENTE_ESTADO");
+        //inicializaVariaveis();
+        //pegando os dados enviados por "i.put.extra" da tela ListCliente
+        String nome = getIntent().getStringExtra("CLIENTE_NOME");
+        String email = getIntent().getStringExtra("CLIENTE_EMAIL");
+        String numero = getIntent().getStringExtra("CLIENTE_NUMERO");
+        String cpf = getIntent().getStringExtra("CLIENTE_CPF");
+        String log = getIntent().getStringExtra("CLIENTE_LOG");
+        String bairro = getIntent().getStringExtra("CLIENTE_BAIRRO");
+        String cidade = getIntent().getStringExtra("CLIENTE_CIDADE");
+        String estado = getIntent().getStringExtra("CLIENTE_ESTADO");
 
         etNome.setText(nome);
         etEmail.setText(email);
@@ -105,8 +106,8 @@ public class ClienteDetalhadoActivity extends AppCompatActivity {
                 clienteController.deletar(id);
                 Toast.makeText(getApplicationContext(), "Excluído com sucesso", Toast.LENGTH_LONG).show();
 
-                // Voltar para a activity "MinhaActivity"
-                Intent intent = new Intent(ClienteDetalhadoActivity.this, ListaClienteActivity.class);
+
+                Intent intent = new Intent(ClienteDetalhadoActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });
@@ -133,24 +134,51 @@ public class ClienteDetalhadoActivity extends AppCompatActivity {
         //trazendo o objeto cliente selecionado
         Cliente clienteClicado = (Cliente) getIntent().getSerializableExtra("CLIENTE");
 
+        AlertDialog.Builder caixaTexto = new AlertDialog.Builder(ClienteDetalhadoActivity.this);
+        caixaTexto.setTitle("Editar");
+        caixaTexto.setMessage("Tem certeza que deseja editar?");
+
+        caixaTexto.setCancelable(false);
+
         btnEditar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //alterando os dados conforme vao sendo preenchidos
-                clienteClicado.setNome(etNome.getText().toString());
-                clienteClicado.setEmail(etEmail.getText().toString());
-                clienteClicado.setNumero(etNumero.getText().toString());
-                clienteClicado.setCpf(etCpf.getText().toString());
-                clienteClicado.setLougradouro(etLougradoro.getText().toString());
-                clienteClicado.setBairro(etBairro.getText().toString());
-                clienteClicado.setCidade(etCidade.getText().toString());
-                clienteClicado.setEstado(etEstado.getText().toString());
 
-                clienteController.alterar(clienteClicado);
-                Toast.makeText(ClienteDetalhadoActivity.this, "Cliente editado", Toast.LENGTH_LONG).show();
+                caixaTexto.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
 
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        //alterando os dados conforme vao sendo preenchidos
+                        clienteClicado.setNome(etNome.getText().toString());
+                        clienteClicado.setEmail(etEmail.getText().toString());
+                        clienteClicado.setNumero(etNumero.getText().toString());
+                        clienteClicado.setCpf(etCpf.getText().toString());
+                        clienteClicado.setLougradouro(etLougradoro.getText().toString());
+                        clienteClicado.setBairro(etBairro.getText().toString());
+                        clienteClicado.setCidade(etCidade.getText().toString());
+                        clienteClicado.setEstado(etEstado.getText().toString());
+
+                        clienteController.alterar(clienteClicado);
+                        Toast.makeText(getApplicationContext(), "Editado com sucesso", Toast.LENGTH_LONG).show();
+
+                        Intent intent = new Intent(ClienteDetalhadoActivity.this, MainActivity.class);
+                        startActivity(intent);
+                    }
+
+                });
+                caixaTexto.setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //mostra caixa de mensagem pequena por um longo tempo
+                        Toast.makeText(getApplicationContext(), "Operação cancelada", Toast.LENGTH_LONG).show();
+                    }
+                });
+
+
+                caixaTexto.show();
             }
         });
+
     }
 
 }
