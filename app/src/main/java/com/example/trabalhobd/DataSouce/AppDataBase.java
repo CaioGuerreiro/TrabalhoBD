@@ -10,6 +10,9 @@ import android.util.Log;
 
 import com.example.trabalhobd.api.AppUtil;
 import com.example.trabalhobd.datamodel.ClienteDataModel;
+import com.example.trabalhobd.datamodel.FornecedorDataModel;
+import com.example.trabalhobd.datamodel.ProdforDataModel;
+import com.example.trabalhobd.datamodel.ProdutoDataModel;
 import com.example.trabalhobd.model.Cliente;
 
 import java.util.ArrayList;
@@ -33,10 +36,20 @@ public class AppDataBase extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
+        //criando tabela produto/fornecedor
+        db.execSQL(ProdforDataModel.criarTabela());
+        //criando tabela fornecedor
+        db.execSQL(FornecedorDataModel.criarTabela());
 
+        // criando tabela produto
+        db.execSQL(ProdutoDataModel.criarTabela());
+
+        // criando tabela cliente
         db.execSQL(ClienteDataModel.criarTabela());
 
         Log.d(AppUtil.TAG, "onCreate: Tabela Cliente Criada"+ClienteDataModel.criarTabela());
+        Log.d(AppUtil.TAG, "onCreate: Tabela Produto Criada"+ProdutoDataModel.criarTabela());
+        Log.d(AppUtil.TAG, "onCreate: Tabela Fornecedor Criada"+FornecedorDataModel.criarTabela());
     }
 
     @Override
