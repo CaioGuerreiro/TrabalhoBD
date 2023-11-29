@@ -24,15 +24,8 @@ import java.util.List;
 
 public class ClienteDetalhadoActivity extends AppCompatActivity {
 
-    EditText etNome;
-    EditText etEmail;
-    EditText etNumero;
-    EditText etCpf;
-    EditText etLougradoro;
-    EditText etBairro;
-    EditText etCidade;
-    EditText etEstado;
-    Button btnEditar,btnExcluir,btnProdutos;
+    EditText etNome, etEmail, etNumero, etCpf, etLougradoro, etBairro, etCidade, etEstado;
+    Button btnEditar, btnExcluir, btnProdutos;
     List<Cliente> clienteList;
     List<String> clientes;
     Cliente novoCliente;
@@ -50,6 +43,17 @@ public class ClienteDetalhadoActivity extends AppCompatActivity {
 
         excluirCliente();
         editarCliente();
+        btnProdutos();
+    }
+
+    public void btnProdutos(){
+        btnProdutos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(ClienteDetalhadoActivity.this, ProdutoActivity.class);
+                startActivity(i);
+            }
+        });
     }
 
     public void inicializaVariaveis() {
@@ -180,5 +184,7 @@ public class ClienteDetalhadoActivity extends AppCompatActivity {
         });
 
     }
+
+
 
 }
