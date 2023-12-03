@@ -13,10 +13,7 @@
         android:theme="@style/Theme.TrabalhoBD"
         tools:targetApi="31">
         <activity
-            android:name=".view.FormularioProdutoActivity"
-            android:exported="false" />
-        <activity
-            android:name=".view.ListaProdutoActivity"
+            android:name=".view.ProdutoActivity"
             android:exported="false" />
         <activity
             android:name=".view.ListaClienteActivity"
