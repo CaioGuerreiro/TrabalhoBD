@@ -12,15 +12,17 @@ import android.widget.Toast;
 
 import com.example.trabalhobd.R;
 import com.example.trabalhobd.controller.ClienteController;
+import com.example.trabalhobd.controller.FornecedorController;
 import com.example.trabalhobd.model.Cliente;
+import com.example.trabalhobd.model.Fornecedor;
 
 public class FornecedorActivity extends AppCompatActivity {
 
-    EditText etNome,etCpf;
+    EditText etNome,etCnpj;
     Button btnSalvar;
 
-    Cliente novoCliente;
-    ClienteController clienteController;
+    Fornecedor novoFornecedor;
+    FornecedorController fornecedorController;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,11 +34,11 @@ public class FornecedorActivity extends AppCompatActivity {
 
     void inicializarComponentes(){
         etNome = findViewById(R.id.etNome);
-        etCpf = findViewById(R.id.etCpf);
+        etCnpj = findViewById(R.id.etCnpj);
         btnSalvar = findViewById(R.id.btnSalvar);
 
-        novoCliente = new Cliente();
-        clienteController = new ClienteController(getApplicationContext());
+        novoFornecedor = new Fornecedor();
+        fornecedorController = new FornecedorController(getApplicationContext());
     }
 
     private void btnListener() {
@@ -53,11 +55,11 @@ public class FornecedorActivity extends AppCompatActivity {
                 }
 
                 // populando o banco de dados
-                novoCliente.setNome(etNome.getText().toString());
-                novoCliente.setCpf(etCpf.getText().toString());
-                clienteController.incluir(novoCliente);
+                novoFornecedor.setNome(etNome.getText().toString());
+                novoFornecedor.setCnpj(etCnpj.getText().toString());
+                fornecedorController.incluir(novoFornecedor);
 
-                Toast.makeText(FornecedorActivity.this, "Cliente Salvo!", Toast.LENGTH_LONG).show();
+                Toast.makeText(FornecedorActivity.this, "Fornecedor Salvo!", Toast.LENGTH_LONG).show();
                 finish();
             }
         });
