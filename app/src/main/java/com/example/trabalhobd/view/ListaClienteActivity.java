@@ -18,6 +18,7 @@ import android.widget.ListView;
 
 import com.example.trabalhobd.R;
 import com.example.trabalhobd.controller.ClienteController;
+import com.example.trabalhobd.controller.ProdutoController;
 import com.example.trabalhobd.model.Cliente;
 
 import java.util.ArrayList;
@@ -88,6 +89,10 @@ public class ListaClienteActivity extends AppCompatActivity {
 
                 // Inicie a Activity
                 startActivity(i);
+
+                Intent intent = new Intent(ListaClienteActivity.this, ProdutoController.class);
+                intent.putExtra("ID_CLIENTE", clienteClicado.getId());
+                startActivity(intent);
 
 
             }

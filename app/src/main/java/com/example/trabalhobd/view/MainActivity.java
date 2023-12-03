@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         btnCadastrarFornecedor.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, FornecedorActivity.class);
+                Intent i = new Intent(MainActivity.this, FormularioFornecedorActivity.class);
                 startActivity(i);
             }
         });

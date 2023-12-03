@@ -16,6 +16,9 @@
             android:name=".view.FormularioProdutoActivity"
             android:exported="false" />
         <activity
+            android:name=".view.FormularioFornecedorActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.ListaProdutoActivity"
             android:exported="false" />
         <activity

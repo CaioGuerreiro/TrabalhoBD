@@ -52,10 +52,16 @@ public class ProdutoController extends AppDataBase implements ICrud<Produto> {
         return deleteById(ProdutoDataModel.TABELA, id);
     }
 
-    @Override
+
     public List<Produto> listar() {
+
+
+
 
 
         return getProduto(ProdutoDataModel.TABELA);
     }
+
+
+
 }

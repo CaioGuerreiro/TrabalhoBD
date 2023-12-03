@@ -37,6 +37,8 @@ public class ListaProdutoActivity extends AppCompatActivity {
     }
 
     public void inicializaComponentes(){
+        int id = getIntent().getIntExtra("CLIENTE_ID", -1);
+
         produtoController = new ProdutoController(ListaProdutoActivity.this);
         listaProduto = findViewById(R.id.listaProduto);
         produtoList = produtoController.listar();

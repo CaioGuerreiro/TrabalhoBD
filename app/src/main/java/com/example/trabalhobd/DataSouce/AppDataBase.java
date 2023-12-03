@@ -156,6 +156,8 @@ public class AppDataBase extends SQLiteOpenHelper {
     public List<Produto> getProduto(String tabela){
         db = getWritableDatabase();
 
+
+
         List<Produto> produto = new ArrayList<>();
         String sql = "SELECT * FROM "+tabela+" WHERE id_cliente = 1";
         Produto obj;
