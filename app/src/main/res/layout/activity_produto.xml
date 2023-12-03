@@ -151,6 +151,77 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/llNomeFornecedor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="15px"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.024"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nome:">
+
+            </TextView>
+
+            <EditText
+                android:id="@+id/etNomeFornecedor"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:hint="Nome"
+                android:inputType="text"
+                tools:layout_editor_absoluteX="28dp"
+                tools:layout_editor_absoluteY="25dp">
+
+            </EditText>
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:id="@+id/llCnpj"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="15px"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/llEmail"
+            app:layout_constraintVertical_bias="0.243"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CNPJ:">
+
+            </TextView>
+
+            <EditText
+                android:id="@+id/etCnpj"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:hint="CNPJ"
+                android:inputType="number"
+                tools:layout_editor_absoluteX="28dp"
+                tools:layout_editor_absoluteY="25dp">
+
+            </EditText>
+
+        </LinearLayout>
+
+
 
 
 

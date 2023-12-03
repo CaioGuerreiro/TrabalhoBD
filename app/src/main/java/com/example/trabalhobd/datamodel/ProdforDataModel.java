@@ -11,8 +11,8 @@ public class ProdforDataModel {
     // atributos com os nomes dos campos
 
     public static final String ID_PRODFOR = "id_prodfor"; // integer Primary key
-    public static final String ID_PRODUTO = "id_produto"; // text
-    public static final String ID_FORNECEDOR  = "id_fornecedor"; //text
+    public static final String NOME_PRODUTO = "nome_produto"; // text
+    public static final String NOME_FORNECEDOR = "nome_fornecedor"; //text
 
 
 
@@ -30,8 +30,10 @@ public class ProdforDataModel {
 
         queryCriaTabela += "CREATE TABLE "+TABELA+" (";
         queryCriaTabela += ID_PRODFOR+" integer primary key autoincrement, ";
-        queryCriaTabela += ID_PRODUTO+" integer, ";
-        queryCriaTabela += ID_FORNECEDOR+" integer ";
+        queryCriaTabela += NOME_PRODUTO +" text, ";
+        queryCriaTabela += NOME_FORNECEDOR +" text,";
+        queryCriaTabela += "FOREIGN KEY("+ NOME_FORNECEDOR +") REFERENCES Fornecedor(nome), ";
+        queryCriaTabela += "FOREIGN KEY("+ NOME_PRODUTO +") REFERENCES produto(nome) ON DELETE CASCADE";
         queryCriaTabela += ")";
 
         return queryCriaTabela;
