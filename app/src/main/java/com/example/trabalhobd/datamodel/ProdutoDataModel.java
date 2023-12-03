@@ -34,8 +34,8 @@ public class ProdutoDataModel {
         queryCriaTabela += "CREATE TABLE "+TABELA+" (";
         queryCriaTabela += ID_PRODUTO+" integer primary key autoincrement, ";
         queryCriaTabela += NOME+" text, "; // nome text
-        queryCriaTabela += QUANTIDADE+" integer, "; // nome text
-        queryCriaTabela += TIPO+" text, "; // nome text
+        queryCriaTabela += QUANTIDADE+" integer, ";
+        queryCriaTabela += TIPO+" text, ";
 
         queryCriaTabela += ID_CLIENTE+" integer, foreign key("+ID_CLIENTE+") references 'cliente'('id') ON DELETE CASCADE" ; // nome text
         queryCriaTabela += ")";

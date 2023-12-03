@@ -66,7 +66,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Quantidade:">
+                android:text="Quantidaade:">
 
             </TextView>
 
@@ -109,7 +109,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:hint="Tipo do produto"
-                android:inputType="phone"
+                android:inputType="text"
                 tools:layout_editor_absoluteX="28dp"
                 tools:layout_editor_absoluteY="25dp">
 
@@ -155,42 +155,11 @@
 
 
 
-        <LinearLayout
-            android:id="@+id/llBtn"
+        <Button
+            android:id="@+id/btnSalvar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/llCPF"
-            app:layout_constraintVertical_bias="0.081"
-            tools:ignore="MissingConstraints">
-
-            <Button
-                android:id="@+id/btnEditar"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-
-                android:backgroundTint="#03A9F4"
-                android:text="Editar" />
-
-            <Button
-                android:id="@+id/btnExcluir"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:backgroundTint="#F44336"
-                android:text="Excluir" />
-
-
-
-        </LinearLayout>
+            android:layout_height="wrap_content"
+            android:text="salvar" />
 
     </LinearLayout>
 

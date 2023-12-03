@@ -3,21 +3,20 @@ package com.example.trabalhobd.view;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.compose.material.icons.sharp.ClearKt;
 
 import com.example.trabalhobd.R;
 import com.example.trabalhobd.controller.ClienteController;
-import com.example.trabalhobd.datamodel.ClienteDataModel;
+import com.example.trabalhobd.controller.ProdutoController;
 import com.example.trabalhobd.model.Cliente;
+import com.example.trabalhobd.model.Produto;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,14 +43,17 @@ public class ClienteDetalhadoActivity extends AppCompatActivity {
         excluirCliente();
         editarCliente();
         btnProdutos();
+
     }
 
     public void btnProdutos(){
         btnProdutos.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(ClienteDetalhadoActivity.this, ProdutoActivity.class);
+                Intent i = new Intent(ClienteDetalhadoActivity.this, ListaProdutoActivity.class);
                 startActivity(i);
+
             }
         });
     }

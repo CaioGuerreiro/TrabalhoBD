@@ -14,6 +14,7 @@ import com.example.trabalhobd.datamodel.FornecedorDataModel;
 import com.example.trabalhobd.datamodel.ProdforDataModel;
 import com.example.trabalhobd.datamodel.ProdutoDataModel;
 import com.example.trabalhobd.model.Cliente;
+import com.example.trabalhobd.model.Produto;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -111,6 +112,7 @@ public class AppDataBase extends SQLiteOpenHelper {
         return retorno;
     }
 
+
     @SuppressLint("Range")
     public List<Cliente> getAllClientes(String tabela){
 
@@ -148,6 +150,31 @@ public class AppDataBase extends SQLiteOpenHelper {
 
 
         return cliente;
+    }
+
+    @SuppressLint("Range")
+    public List<Produto> getProduto(String tabela){
+        db = getWritableDatabase();
+
+        List<Produto> produto = new ArrayList<>();
+        String sql = "SELECT * FROM "+tabela+" WHERE id_cliente = 1";
+        Produto obj;
+        Cursor cursor1;
+        cursor1 = db.rawQuery(sql,null);
+        if(cursor1.moveToFirst()){
+            do{
+                obj = new Produto();
+
+                obj.setId_produto(cursor1.getInt(cursor1.getColumnIndex(ProdutoDataModel.ID_PRODUTO)));
+                obj.setTipo(cursor1.getString(cursor1.getColumnIndex(ProdutoDataModel.TIPO)));
+                obj.setQuantidade(cursor1.getInt(cursor1.getColumnIndex(ProdutoDataModel.QUANTIDADE)));
+                obj.setId_cliente(cursor1.getInt(cursor1.getColumnIndex(ProdutoDataModel.ID_CLIENTE)));
+                obj.setNome(cursor1.getString(cursor1.getColumnIndex(ProdutoDataModel.NOME)));
+
+                produto.add(obj);
+            }while(cursor1.moveToNext());
+        }
+        return produto;
     }
 
 }

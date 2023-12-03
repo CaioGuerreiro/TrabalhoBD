@@ -62,6 +62,8 @@ public class ListaClienteActivity extends AppCompatActivity {
 
         lista.setAdapter(clienteAdapter);
 
+        // PRIMEIRO TESTE VAI ATÉ AQUI
+
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -86,7 +88,12 @@ public class ListaClienteActivity extends AppCompatActivity {
 
                 // Inicie a Activity
                 startActivity(i);
+
+
             }
+
+
+
         });
 
 
@@ -107,6 +114,9 @@ public class ListaClienteActivity extends AppCompatActivity {
 
             }
         });
+
+
+
 
     }
 

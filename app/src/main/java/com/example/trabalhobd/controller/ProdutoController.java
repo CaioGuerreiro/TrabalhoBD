@@ -1,7 +1,11 @@
 package com.example.trabalhobd.controller;
 
+import static android.content.Intent.getIntent;
+import static android.content.Intent.getIntentOld;
+
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 
 import com.example.trabalhobd.DataSouce.AppDataBase;
@@ -50,6 +54,8 @@ public class ProdutoController extends AppDataBase implements ICrud<Produto> {
 
     @Override
     public List<Produto> listar() {
-        return null;
+
+
+        return getProduto(ProdutoDataModel.TABELA);
     }
 }
