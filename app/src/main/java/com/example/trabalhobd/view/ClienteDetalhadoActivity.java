@@ -51,8 +51,13 @@ public class ClienteDetalhadoActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(ClienteDetalhadoActivity.this, ListaProdutoActivity.class);
-                startActivity(i);
+                Cliente clienteClicado = (Cliente) getIntent().getSerializableExtra("CLIENTE");
+
+                Intent iProd = new Intent(ClienteDetalhadoActivity.this, ListaProdutoActivity.class);
+
+                iProd.putExtra("CLIENTE", clienteClicado);
+                iProd.putExtra("CLIENTE_ID", clienteClicado.getId());
+                startActivity(iProd);
 
             }
         });
@@ -123,6 +128,7 @@ public class ClienteDetalhadoActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 //mostra caixa de mensagem pequena por um longo tempo
                 Toast.makeText(getApplicationContext(), "Operação cancelada", Toast.LENGTH_LONG).show();
+                finish();
             }
         });
 

@@ -14,7 +14,39 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:orientation="vertical">
+        <LinearLayout
+            android:id="@+id/llidprod"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="15px"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/llNome"
+            app:layout_constraintVertical_bias="0.028"
+            tools:ignore="MissingConstraints">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Codigo produto:">
+
+            </TextView>
+
+            <EditText
+                android:id="@+id/etIdProduto"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:hint="id"
+                android:inputType="number"
+                tools:layout_editor_absoluteX="28dp"
+                tools:layout_editor_absoluteY="25dp">
+
+            </EditText>
+
+        </LinearLayout>
         <LinearLayout
             android:id="@+id/llNome"
             android:layout_width="match_parent"
@@ -150,6 +182,39 @@
             </EditText>
 
         </LinearLayout>
+        <LinearLayout
+            android:id="@+id/llIdFor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="15px"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/llNome"
+            app:layout_constraintVertical_bias="0.028"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Codigo Fornecedor:">
+
+            </TextView>
+
+            <EditText
+                android:id="@+id/etIdFor"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:hint="id"
+                android:inputType="number"
+                tools:layout_editor_absoluteX="28dp"
+                tools:layout_editor_absoluteY="25dp">
+
+            </EditText>
+
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/llNomeFornecedor"
@@ -220,7 +285,27 @@
             </EditText>
 
         </LinearLayout>
+<!--        <EditText-->
+<!--            android:id="@+id/etNomeFornecedor2"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="45dp"-->
+<!--            android:hint="Nome"-->
+<!--            android:inputType="text"-->
+<!--            tools:layout_editor_absoluteX="28dp"-->
+<!--            tools:layout_editor_absoluteY="25dp">-->
 
+<!--        </EditText>-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/etCnpj2"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="45dp"-->
+<!--            android:hint="CNPJ"-->
+<!--            android:inputType="number"-->
+<!--            tools:layout_editor_absoluteX="28dp"-->
+<!--            tools:layout_editor_absoluteY="25dp">-->
+
+<!--        </EditText>-->
 
 
 

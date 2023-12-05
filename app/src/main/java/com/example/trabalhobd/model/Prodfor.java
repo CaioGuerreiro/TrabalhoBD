@@ -5,9 +5,25 @@ import java.io.Serializable;
 public class Prodfor implements Serializable {
 
     private int id_prodfor;
-    private String nome_produto;
-    private String nome_fornecedor;
+    private int id_produto;
+    private int id_fornecedor;
 
+
+    public int getId_produto() {
+        return id_produto;
+    }
+
+    public void setId_produto(int id_produto) {
+        this.id_produto = id_produto;
+    }
+
+    public int getId_fornecedor() {
+        return id_fornecedor;
+    }
+
+    public void setId_fornecedor(int id_fornecedor) {
+        this.id_fornecedor = id_fornecedor;
+    }
     public int getId_prodfor() {
         return id_prodfor;
     }
@@ -16,19 +32,5 @@ public class Prodfor implements Serializable {
         this.id_prodfor = id_prodfor;
     }
 
-    public String getNome_produto() {
-        return nome_produto;
-    }
 
-    public void setNome_produto(String nome_produto) {
-        this.nome_produto = nome_produto;
-    }
-
-    public String getNome_fornecedor() {
-        return nome_fornecedor;
-    }
-
-    public void setNome_fornecedor(String nome_fornecedor) {
-        this.nome_fornecedor = nome_fornecedor;
-    }
 }

@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     ClienteController clienteController;
     ProdutoController produtoController;
     FornecedorController fornecedorController;
-    Button btnCadastrar, btnListar, btnCadastrarProduto, btnCadastrarFornecedor;
+    Button btnCadastrar, btnListar, btnCadastrarProduto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
 
         inicializaVariaveis();
         mainParaFormulario();
-        mainParaFormularioFornecedor();
         mainParaListaCliente();
         mainParaFormularioProduto();
     }
@@ -41,16 +40,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(MainActivity.this, FormularioProdutoActivity.class);
-                startActivity(i);
-            }
-        });
-    }
-
-    public void mainParaFormularioFornecedor(){
-        btnCadastrarFornecedor.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, FormularioFornecedorActivity.class);
                 startActivity(i);
             }
         });
@@ -80,7 +69,6 @@ public class MainActivity extends AppCompatActivity {
         btnCadastrar = findViewById(R.id.btnCadastrar);
         btnListar = findViewById(R.id.btnListar);
         btnCadastrarProduto = findViewById(R.id.btnCadastrarProduto);
-        btnCadastrarFornecedor = findViewById(R.id.btnCadastrarFornecedor);
 
     }
 }

@@ -10,6 +10,7 @@ import android.widget.ListView;
 import com.example.trabalhobd.R;
 import com.example.trabalhobd.controller.ClienteController;
 import com.example.trabalhobd.controller.ProdutoController;
+import com.example.trabalhobd.model.Cliente;
 import com.example.trabalhobd.model.Produto;
 
 import java.util.ArrayList;
@@ -19,9 +20,12 @@ public class ListaProdutoActivity extends AppCompatActivity {
 
     ListView listaProduto;
     List<Produto> produtoList;
-    List<String> produtos;
     ArrayAdapter<String> produtoAdapter;
     ProdutoController produtoController;
+    ClienteController clienteController;
+    Cliente cliente;
+    List<Cliente> clienteList;
+
     Produto objProduto;
 
     @Override
@@ -29,27 +33,43 @@ public class ListaProdutoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_produto);
 
-
-
         inicializaComponentes();
         mostraLista();
 
     }
 
     public void inicializaComponentes(){
-        int id = getIntent().getIntExtra("CLIENTE_ID", -1);
 
         produtoController = new ProdutoController(ListaProdutoActivity.this);
+        clienteController = new ClienteController(ListaProdutoActivity.this);
+
         listaProduto = findViewById(R.id.listaProduto);
         produtoList = produtoController.listar();
-        produtos = new ArrayList<>();
+        clienteList = clienteController.listar();
+
+       // produtos = new ArrayList<>();
     }
 
     public void mostraLista(){
-        for (Produto obj: produtoList){
-            produtos.add("Nome: "+obj.getNome()+"\nTipo: "+obj.getTipo()+"\nQuantidade: "+obj.getQuantidade());
+        Cliente clienteClicado = (Cliente) getIntent().getSerializableExtra("CLIENTE");
+        // Lista para armazenar os produtos do cliente selecionado
+        List<Produto> produtosDoCliente = new ArrayList<>();
+
+        // Filtrando os produtos associados ao cliente selecionado
+        for (Produto produto : produtoList) {
+            if (produto.getId_cliente() == clienteClicado.getId()) {
+                produtosDoCliente.add(produto);
+            }
         }
-        produtoAdapter = new ArrayAdapter<>(getApplicationContext(),R.layout.lista_produto_item,R.id.textView, produtos);
+
+        // Criando uma lista de strings para exibir na ListView
+        List<String> produtos = new ArrayList<>();
+        for (Produto obj : produtosDoCliente) {
+            produtos.add("Nome: " + obj.getNome() + "\nTipo: " + obj.getTipo() + "\nQuantidade: " + obj.getQuantidade()+"\nTipo: "+obj.getTipo());
+        }
+
+        // Atualizando o Adapter da ListView com os produtos filtrados do cliente
+        ArrayAdapter<String> produtoAdapter = new ArrayAdapter<>(getApplicationContext(), R.layout.lista_produto_item, R.id.textView, produtos);
         listaProduto.setAdapter(produtoAdapter);
     }
 }

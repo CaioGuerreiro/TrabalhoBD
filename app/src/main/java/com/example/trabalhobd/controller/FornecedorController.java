@@ -7,6 +7,7 @@ import android.util.Log;
 import com.example.trabalhobd.DataSouce.AppDataBase;
 import com.example.trabalhobd.api.AppUtil;
 import com.example.trabalhobd.datamodel.FornecedorDataModel;
+import com.example.trabalhobd.datamodel.ProdutoDataModel;
 import com.example.trabalhobd.model.Fornecedor;
 
 import java.util.List;
@@ -25,7 +26,7 @@ public class FornecedorController extends AppDataBase implements ICrud<Fornecedo
     @Override
     public boolean incluir(Fornecedor obj) {
         dadoDoObjeto = new ContentValues();
-
+        dadoDoObjeto.put(FornecedorDataModel.ID_FORNECEDOR, obj.getId_fornecedor());
         dadoDoObjeto.put(FornecedorDataModel.NOME,obj.getNome());
         dadoDoObjeto.put(FornecedorDataModel.CNPJ,obj.getCnpj());
         dadoDoObjeto.put(FornecedorDataModel.NOME,obj.getNome());
@@ -49,6 +50,6 @@ public class FornecedorController extends AppDataBase implements ICrud<Fornecedo
 
     @Override
     public List<Fornecedor> listar() {
-        return null;
+        return getAllFornecedor(ProdutoDataModel.TABELA);
     }
 }

@@ -14,6 +14,7 @@ import com.example.trabalhobd.datamodel.FornecedorDataModel;
 import com.example.trabalhobd.datamodel.ProdforDataModel;
 import com.example.trabalhobd.datamodel.ProdutoDataModel;
 import com.example.trabalhobd.model.Cliente;
+import com.example.trabalhobd.model.Fornecedor;
 import com.example.trabalhobd.model.Produto;
 
 import java.util.ArrayList;
@@ -153,13 +154,13 @@ public class AppDataBase extends SQLiteOpenHelper {
     }
 
     @SuppressLint("Range")
-    public List<Produto> getProduto(String tabela){
+    public List<Produto> getAllProduto(String tabela){
         db = getWritableDatabase();
 
 
 
         List<Produto> produto = new ArrayList<>();
-        String sql = "SELECT * FROM "+tabela+" WHERE id_cliente = 1";
+        String sql = "SELECT * FROM "+tabela;
         Produto obj;
         Cursor cursor1;
         cursor1 = db.rawQuery(sql,null);
@@ -177,6 +178,31 @@ public class AppDataBase extends SQLiteOpenHelper {
             }while(cursor1.moveToNext());
         }
         return produto;
+    }
+
+    @SuppressLint("Range")
+    public List<Fornecedor> getAllFornecedor(String tabela){
+        db = getWritableDatabase();
+
+
+
+        List<Fornecedor> fornecedor = new ArrayList<>();
+        String sql = "SELECT * FROM "+tabela;
+        Fornecedor obj;
+        Cursor cursor1;
+        cursor1 = db.rawQuery(sql,null);
+        if(cursor1.moveToFirst()){
+            do{
+                obj = new Fornecedor();
+
+                obj.setId_fornecedor(cursor1.getInt(cursor1.getColumnIndex(FornecedorDataModel.ID_FORNECEDOR)));
+                obj.setNome(cursor1.getString(cursor1.getColumnIndex(FornecedorDataModel.NOME)));
+                obj.setCnpj(cursor1.getString(cursor1.getColumnIndex(FornecedorDataModel.CNPJ)));
+
+                fornecedor.add(obj);
+            }while(cursor1.moveToNext());
+        }
+        return fornecedor;
     }
 
 }

@@ -65,6 +65,7 @@ public class ListaClienteActivity extends AppCompatActivity {
 
         // PRIMEIRO TESTE VAI ATÉ AQUI
 
+
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -73,6 +74,7 @@ public class ListaClienteActivity extends AppCompatActivity {
 
                 // Crie uma nova Intent para a ClienteDetalhadoActivity
                 Intent i = new Intent(ListaClienteActivity.this, ClienteDetalhadoActivity.class);
+
 
                 // Adicione quaisquer dados extras que você queira passar para a próxima Activity
                 i.putExtra("CLIENTE", clienteClicado);
@@ -86,22 +88,11 @@ public class ListaClienteActivity extends AppCompatActivity {
                 i.putExtra("CLIENTE_CIDADE", clienteClicado.getCidade());
                 i.putExtra("CLIENTE_ESTADO", clienteClicado.getEstado());
 
-
                 // Inicie a Activity
                 startActivity(i);
-
-                Intent intent = new Intent(ListaClienteActivity.this, ProdutoController.class);
-                intent.putExtra("ID_CLIENTE", clienteClicado.getId());
-                startActivity(intent);
-
-
             }
 
-
-
         });
-
-
         etLista.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence filtro, int i, int i1, int i2) {

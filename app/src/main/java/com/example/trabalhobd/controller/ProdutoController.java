@@ -27,6 +27,7 @@ public class ProdutoController extends AppDataBase implements ICrud<Produto> {
     public boolean incluir(Produto obj) {
         dadoDoObjeto = new ContentValues();
 
+        dadoDoObjeto.put(ProdutoDataModel.ID_PRODUTO, obj.getId_produto());
         dadoDoObjeto.put(ProdutoDataModel.NOME, obj.getNome());
         dadoDoObjeto.put(ProdutoDataModel.QUANTIDADE, obj.getQuantidade());
         dadoDoObjeto.put(ProdutoDataModel.TIPO, obj.getTipo());
@@ -55,11 +56,7 @@ public class ProdutoController extends AppDataBase implements ICrud<Produto> {
 
     public List<Produto> listar() {
 
-
-
-
-
-        return getProduto(ProdutoDataModel.TABELA);
+        return getAllProduto(ProdutoDataModel.TABELA);
     }
 
 

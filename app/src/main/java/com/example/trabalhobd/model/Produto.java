@@ -1,14 +1,24 @@
 package com.example.trabalhobd.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Produto implements Serializable {
-
     private int id_produto;
     private String nome;
     private int quantidade;
     private String tipo;
     private int id_cliente;
+
+    public Fornecedor getFornecedor() {
+        return fornecedor;
+    }
+
+    public void setFornecedor(Fornecedor fornecedor) {
+        this.fornecedor = fornecedor;
+    }
+
+    Fornecedor fornecedor;
 
     public int getId_produto() {
         return id_produto;

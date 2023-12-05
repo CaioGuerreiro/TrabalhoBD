@@ -21,21 +21,26 @@ public class ProdforController extends AppDataBase implements ICrud<Prodfor>{
     public boolean incluir(Prodfor obj) {
         dadoDoObjeto = new ContentValues();
 
-        dadoDoObjeto.put(ProdforDataModel.NOME_FORNECEDOR, obj.getNome_fornecedor());
-        dadoDoObjeto.put(ProdforDataModel.NOME_PRODUTO, obj.getNome_produto());
+        dadoDoObjeto.put(ProdforDataModel.ID_FORNECEDOR, obj.getId_fornecedor());
+        dadoDoObjeto.put(ProdforDataModel.ID_PRODUTO, obj.getId_produto());
 
         return insert(ProdforDataModel.TABELA, dadoDoObjeto);
     }
 
     @Override
     public boolean alterar(Prodfor obj) {
-        dadoDoObjeto = new ContentValues();
-
-        dadoDoObjeto.put(ProdforDataModel.NOME_FORNECEDOR, obj.getNome_fornecedor());
-        dadoDoObjeto.put(ProdforDataModel.NOME_PRODUTO, obj.getNome_produto());
-
-        return update(ProdforDataModel.TABELA, dadoDoObjeto);
+        return false;
     }
+
+    //   @Override
+//    public boolean alterar(Prodfor obj) {
+//        dadoDoObjeto = new ContentValues();
+//
+//        dadoDoObjeto.put(ProdforDataModel.NOME_FORNECEDOR, obj.getNome_fornecedor());
+//        dadoDoObjeto.put(ProdforDataModel.NOME_PRODUTO, obj.getNome_produto());
+//
+//        return update(ProdforDataModel.TABELA, dadoDoObjeto);
+//    }
 
     @Override
     public boolean deletar(int id) {

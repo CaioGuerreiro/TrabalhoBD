@@ -1,8 +1,19 @@
 package com.example.trabalhobd.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Fornecedor implements Serializable {
+    public List<Prodfor> getProdforList() {
+        return prodforList;
+    }
+
+    public void setProdforList(List<Prodfor> prodforList) {
+        this.prodforList = prodforList;
+    }
+
+    private List<Prodfor> prodforList;
+
 
     private int id_fornecedor;
     private String nome;
