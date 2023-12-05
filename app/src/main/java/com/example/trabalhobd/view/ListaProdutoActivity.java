@@ -65,7 +65,7 @@ public class ListaProdutoActivity extends AppCompatActivity {
         // Criando uma lista de strings para exibir na ListView
         List<String> produtos = new ArrayList<>();
         for (Produto obj : produtosDoCliente) {
-            produtos.add("Nome: " + obj.getNome() + "\nTipo: " + obj.getTipo() + "\nQuantidade: " + obj.getQuantidade()+"\nTipo: "+obj.getTipo());
+            produtos.add("Nome: " + obj.getNome() + "\nTipo: " + obj.getTipo() + "\nQuantidade: " + obj.getQuantidade());
         }
 
         // Atualizando o Adapter da ListView com os produtos filtrados do cliente

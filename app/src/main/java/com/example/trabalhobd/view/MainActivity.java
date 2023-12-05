@@ -45,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+
+
     public void mainParaFormulario(){
         btnCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
         btnCadastrar = findViewById(R.id.btnCadastrar);
         btnListar = findViewById(R.id.btnListar);
         btnCadastrarProduto = findViewById(R.id.btnCadastrarProduto);
+
 
     }
 }

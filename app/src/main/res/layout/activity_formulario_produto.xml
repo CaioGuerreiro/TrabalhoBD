@@ -233,7 +233,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Nome:">
+                android:text="Nome do Fornecedor:">
 
             </TextView>
 
@@ -241,7 +241,7 @@
                 android:id="@+id/etNomeFornecedor"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
-                android:hint="Nome"
+                android:hint="Nome do Fornecedor"
                 android:inputType="text"
                 tools:layout_editor_absoluteX="28dp"
                 tools:layout_editor_absoluteY="25dp">

@@ -34,14 +34,14 @@ public class ClienteDataModel {
 
         queryCriaTabela += "CREATE TABLE "+TABELA+" (";
         queryCriaTabela += ID+" integer primary key autoincrement, ";
-        queryCriaTabela += NOME+" text, "; // nome text
-        queryCriaTabela += EMAIL+" text, "; // nome text
-        queryCriaTabela += LOGRADOURO+" text, "; // nome text
-        queryCriaTabela += NUMERO+" text, "; // nome text
-        queryCriaTabela += CPF+" text, "; // nome text
-        queryCriaTabela += BAIRRO+" text, "; // nome text
-        queryCriaTabela += CIDADE+" text, "; // nome text
-        queryCriaTabela += ESTADO+" text "; // nome text
+        queryCriaTabela += NOME+" text, ";
+        queryCriaTabela += EMAIL+" text, ";
+        queryCriaTabela += LOGRADOURO+" text, ";
+        queryCriaTabela += NUMERO+" text, ";
+        queryCriaTabela += CPF+" text, ";
+        queryCriaTabela += BAIRRO+" text, ";
+        queryCriaTabela += CIDADE+" text, ";
+        queryCriaTabela += ESTADO+" text ";
         queryCriaTabela += ")";
 
         return queryCriaTabela;

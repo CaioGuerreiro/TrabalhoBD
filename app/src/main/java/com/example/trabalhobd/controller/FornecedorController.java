@@ -50,6 +50,8 @@ public class FornecedorController extends AppDataBase implements ICrud<Fornecedo
 
     @Override
     public List<Fornecedor> listar() {
-        return getAllFornecedor(ProdutoDataModel.TABELA);
+        return null;
     }
+
+
 }

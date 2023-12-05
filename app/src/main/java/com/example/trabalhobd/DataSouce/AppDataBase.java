@@ -88,7 +88,7 @@ public class AppDataBase extends SQLiteOpenHelper {
 
 
 
-    public boolean deleteById(String tabela, int id){
+    public boolean deleteById(String tabela, int id){ // delete from cliente where id = 1
 
         boolean retorno = false;
 
@@ -180,29 +180,5 @@ public class AppDataBase extends SQLiteOpenHelper {
         return produto;
     }
 
-    @SuppressLint("Range")
-    public List<Fornecedor> getAllFornecedor(String tabela){
-        db = getWritableDatabase();
-
-
-
-        List<Fornecedor> fornecedor = new ArrayList<>();
-        String sql = "SELECT * FROM "+tabela;
-        Fornecedor obj;
-        Cursor cursor1;
-        cursor1 = db.rawQuery(sql,null);
-        if(cursor1.moveToFirst()){
-            do{
-                obj = new Fornecedor();
-
-                obj.setId_fornecedor(cursor1.getInt(cursor1.getColumnIndex(FornecedorDataModel.ID_FORNECEDOR)));
-                obj.setNome(cursor1.getString(cursor1.getColumnIndex(FornecedorDataModel.NOME)));
-                obj.setCnpj(cursor1.getString(cursor1.getColumnIndex(FornecedorDataModel.CNPJ)));
-
-                fornecedor.add(obj);
-            }while(cursor1.moveToNext());
-        }
-        return fornecedor;
-    }
 
 }
